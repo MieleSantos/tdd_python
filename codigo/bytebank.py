@@ -14,9 +14,16 @@ class Funcionario:
     def salario(self):
         return self._salario
 
+    def sobrenome(self):
+        nome_completo = self.nome.strip()
+        nome_quebrado = nome_completo.split()
+        return nome_quebrado[-1]
+    
     def idade(self):
+        data_nascimento = self._data_nascimento.split("/")
+        ano_nascimento = data_nascimento[-1]
         ano_atual = date.today().year
-        return ano_atual - int(self._data_nascimento)
+        return ano_atual - int(ano_nascimento)
 
     def calcular_bonus(self):
         valor = self._salario * 0.1
